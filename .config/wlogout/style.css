@@ -1,0 +1,72 @@
+/* =============================================================================
+   ESTILOS DE WLOGOUT - FORMATO CUADRADO COMPACTO Y SEGURO
+   ============================================================================= */
+
+window {
+    background-color: rgba(15, 15, 20, 0.9);
+}
+
+grid {
+    /* Sin márgenes raros para evitar el bug */
+}
+
+button {
+    background-color: rgba(25, 25, 30, 0.75); /* Cajas oscuras mate */
+    color: #a6a6aa; /* Texto gris */
+º    border: 2px solid rgba(141, 18, 36, 0.5); /* Borde vinotinto sutil */
+    border-radius: 20px; /* Bordes redondeados elegantes */
+    
+    /* Geometría compacta: reducimos los valores para que no se salga de la pantalla */
+    margin: 12px;
+    padding-top: 65px; /* Bajamos de 100px a 65px para que la caja sea más chata */
+    padding-bottom: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+    /* Configuración y posición de los iconos */
+    background-repeat: no-repeat;
+    background-position: center 18px; /* Subimos el icono para ganar espacio */
+    background-size: 42px; /* Tamaño del icono equilibrado */
+    
+    font-family: "JetBrainsMono NF", "Ubuntu Nerd Font", "Sans";
+    font-size: 13px;
+    font-weight: bold;
+    
+    transition: all 0.2s ease-in-out;
+}
+
+button:focus,
+button:hover {
+    background-color: #e6193c; 
+    color: #000000; 
+    border: 2px solid #ffffff; 
+    box-shadow: 0px 0px 25px rgba(230, 25, 60, 0.8); 
+}
+
+/* =============================================================================
+   RUTAS DE ICONOS NATIVOS
+   ============================================================================= */
+
+#lock {
+    background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+}
+
+#logout {
+    background-image: image(url("/usr/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+}
+
+#suspend {
+    background-image: image(url("/usr/share/wlogout/icons/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png"));
+}
+
+#hibernate {
+    background-image: image(url("/usr/share/wlogout/icons/hibernate.png"), url("/usr/local/share/wlogout/icons/hibernate.png"));
+}
+
+#shutdown {
+    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
+}
+
+#reboot {
+    background-image: image(url("/usr/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
+}
