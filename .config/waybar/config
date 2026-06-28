@@ -1,0 +1,151 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "spacing": 4,
+
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        "custom/media",
+        "custom/media-prev",
+        "custom/media-play",
+        "custom/media-next"
+    ],
+    "modules-center": [
+        "clock",
+        "custom/weather"
+    ],
+    "modules-right": [
+        "network",
+        "pulseaudio",
+        "battery",
+        "custom/power"
+    ],
+
+    // --- MÓDULOS DE LA IZQUIERDA ---
+
+    "custom/launcher": {
+        "format": "",
+        "on-click": "rofi -show drun",
+        "tooltip": false
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "active-only": false,
+        "on-click": "activate",
+        "format": "{name}"
+    },
+
+    "custom/media": {
+        "format": "  {}  {alt}",
+        "escape": true,
+        "max-length": 60,
+        "interval": 1,
+        "exec": "playerctl -p spotify metadata --format '{{artist}} - {{title}} | {{duration(position)}} / {{duration(mpris:length)}}' 2> /dev/null || echo 'Spotify cerrado'",
+        "format-alt": "{custom_icon}",
+        "on-click": "playerctl -p spotify play-pause",
+        "on-click-right": "playerctl -p spotify next",
+        "on-click-middle": "playerctl -p spotify previous"
+    },
+
+    "custom/media-prev": {
+        "format": "󰒮",
+        "on-click": "playerctl -p spotify previous",
+        "tooltip": false
+    },
+    "custom/media-play": {
+        "format": "󰐊",
+        "on-click": "playerctl -p spotify play-pause",
+        "tooltip": false
+    },
+    "custom/media-next": {
+        "format": "󰒭",
+        "on-click": "playerctl -p spotify next",
+        "tooltip": false
+    },
+
+    // --- MÓDULOS DEL CENTRO ---
+
+    "clock": {
+        "format": " {:%I:%M:%S %p}",
+        "format-alt": " {:%A, %B %d, %Y}",
+        "on-click": "bash ~/.config/waybar/reloj-flotante.sh &",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6666'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        },
+        "interval": 1
+    },
+
+    "custom/weather": {
+        "format": "󰖔 {}",
+        "restart-interval": 1800,
+        "exec": "curl -s 'https://wttr.in/Bogota?format=%t' | grep -oE '[0-9]+' | sed 's/$/°C/'",
+        "tooltip": false
+    },
+
+    // --- MÓDULOS DE LA DERECHA ---
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰖪",
+        "on-click": "rofi-wifi-menu &",
+        "tooltip-format": "{essid} ({signalStrength}%)"
+    },
+
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "󰝟",
+        "on-click": "volumectl up",
+        "on-click-right": "volumectl toggle-mute",
+        "on-scroll-up": "volumectl up",
+        "on-scroll-down": "volumectl down",
+        "scroll-step": 5,
+        "format-icons": {
+            "default": ["", "", ""]
+        }
+    }, 
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󱐋 {icon} {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "⏳ {time}",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": false,
+        "on-click": "wlogout -b 2"
+    }
+}
