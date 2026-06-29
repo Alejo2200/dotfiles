@@ -1,1 +1,122 @@
-/home/luis/dotfiles/menus_rofi/config.rasi
+configuration {
+    modi:                       "drun,run";
+    show-icons:                 true;
+    display-drun:               "🔍 Search";
+    drun-display-format:        "{name}";
+    font:                       "JetBrainsMono NF 11";
+}
+
+* {
+    bg-color:                   rgba(11, 11, 14, 0.75); 
+    bg-alt:                     rgba(106, 76, 147, 0.3); 
+    border-color:               #3c2a55; 
+    fg-color:                   #ffffff;
+    fg-alt:                     #9b5de5; 
+}
+
+window {
+    transparency:               "real";
+    location:                   center;
+    anchor:                     center;
+    width:                      680px;
+    height:                     560px;
+    enabled:                    true;
+    border:                     1px solid;
+    border-color:               @border-color;
+    border-radius:              24px;
+    background-color:           @bg-color;
+    cursor:                     "default";
+}
+
+mainbox {
+    enabled:                    true;
+    spacing:                    0px;
+    background-color:           transparent;
+    children:                   [ "banner", "inputbar", "listview" ];
+}
+
+banner {
+    expand:                     false;
+    padding:                    90px 0px;
+    background-image:           url("/home/luis/.config/rofi/banner.jpg", width); 
+    background-color:           transparent;
+    border-radius:              22px 22px 0px 0px;
+    margin:                     0px;
+    box-type:                   horizontal;
+}
+
+inputbar {
+    enabled:                    true;
+    spacing:                    10px;
+    margin:                     15px 20px;
+    padding:                    10px 16px;
+    border-radius:              12px;
+    background-color:           rgba(0, 0, 0, 0.5);
+    text-color:                 @fg-color;
+    children:                   [ "entry" ];
+}
+
+entry {
+    enabled:                    true;
+    background-color:           transparent;
+    text-color:                 inherit;
+    cursor:                     text;
+    placeholder:                "Search applications...";
+    placeholder-color:          #aaaaaa;
+}
+
+listview {
+    enabled:                    true;
+    columns:                    2;
+    lines:                      5;
+    cycle:                      true;
+    dynamic:                    true;
+    scrollbar:                  false;
+    layout:                     vertical;
+    reverse:                    false;
+    fixed-height:               true;
+    fixed-columns:              true;
+    spacing:                    6px;
+    margin:                     0px 20px 20px 20px;
+    background-color:           transparent;
+    text-color:                 @fg-color;
+}
+
+element {
+    enabled:                    true;
+    spacing:                    12px;
+    padding:                    8px;
+    border-radius:              12px;
+    background-color:           transparent;
+    text-color:                 @fg-color;
+    cursor: pointer;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color:           transparent;
+    text-color:                 @fg-color;
+}
+
+element selected.normal,
+element selected.urgent,
+element selected.active {
+    background-color:           @bg-alt;
+    text-color:                 @fg-alt;
+    border:                     1px solid;
+    border-color:               @fg-alt;
+}
+
+element-icon {
+    background-color:           transparent;
+    text-color:                 inherit;
+    size:                       28px;
+    cursor:                     inherit;
+}
+
+element-text {
+    background-color:           transparent;
+    text-color:                 inherit;
+    cursor:                     inherit;
+    vertical-align:             0.5;
+}
