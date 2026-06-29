@@ -97,22 +97,24 @@ window#waybar {
     color: #9b5de5;
 }
 
-/* Derecha */
 #network, #pulseaudio, #battery {
-    color: #9b5de5;
-    font-size: 16px; 
-    padding: 5px 18px;
+    color: #a6a6aa; 
+    font-size: 15px; 
+    padding: 5px 15px;
+    border-radius: 12px; 
+    transition: all 0.2s ease-in-out; 
 }
 
 #pulseaudio:hover {
     color: #ffffff;            
-    background-color: #3c2a55; 
-    border: 1px solid #9b5de5; 
-    box-shadow: 0px 0px 10px rgba(155, 93, 229, 0.4); 
+    background-color: #6a4c93;  
+    border: 1px solid #e0e0e0;  
+    box-shadow: 0px 0px 15px rgba(106, 76, 147, 0.6); 
 }
 
 #pulseaudio.muted {
-    color: #3c2a55; 
+    color: rgba(106, 76, 147, 0.4); 
+    background-color: rgba(25, 25, 30, 0.5); 
 }
 
 #battery.critical:not(.charging) {

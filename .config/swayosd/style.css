@@ -1,0 +1,33 @@
+/* Fondo general de la ventana flotante */
+window {
+    background: rgba(20, 15, 30, 0.9);
+    border-radius: 20px;
+    padding: 10px;
+}
+
+#osd {
+    background: transparent;
+}
+
+/* Contenedor de la barra de progreso */
+progressbar {
+    min-height: 12px;
+    border-radius: 12px;
+}
+
+/* El fondo de la barra de progreso (la parte vacía) */
+progressbar trough {
+    background: rgba(50, 30, 70, 0.4);
+    border-radius: 12px;
+}
+
+/* La barra de progreso activa (el volumen actual) */
+progressbar progress {
+    background: #4a148c; /* Morado oscuro */
+    border-radius: 12px;
+}
+
+/* El icono del altavoz */
+image {
+    color: #e1bee7; /* Morado clarito para hacer contraste */
+}
