@@ -403,7 +403,7 @@ hl.window_rule({
     match = { class = "^reloj_flotante$" },
     float = true,
     center = true,
-    size = "500 170"
+    size = "500 170",
 })
 
 -- Regla de capa para activar el desenfoque en Rofi
